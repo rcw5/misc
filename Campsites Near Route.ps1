@@ -101,7 +101,7 @@ $route = [xml] (gc $simplifyfilename)
 
 ##### Buildup a LINESTRING variable for the INSERT statement
 $linestring = "LINESTRING ("
-$linestring += ($x.gpx.trk.trkseg.trkpt | % { "{0} {1}" -f [double]$_.Lon,[double]$_.Lat }) -join ","
+$linestring += ($route.gpx.trk.trkseg.trkpt | % { "{0} {1}" -f [double]$_.Lon,[double]$_.Lat }) -join ","
 $linestring += ")"
 
 #### Insert data into SQL Server table, making it valid at the same time
