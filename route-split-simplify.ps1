@@ -62,8 +62,8 @@ else {
 $zippedOutputFiles = @()
 foreach($file in $outputFiles) {
   $outputFileName = "{0}_simplify.gpx" -f ([io.fileinfo]$file).basename
-  & gpsbabel -r -i gpx -f $file -x simplify`,count=$TrkPtsPerFile -o gpx -F $outputFileName
-  write-host "Simplified file $file to $TrkPtsPerFile points"
+  & gpsbabel -r -i gpx -f $file -x simplify`,count=$TrackPointsPerFile -o gpx -F $outputFileName
+  write-host "Simplified file $file to $TrackPointsPerFile points"
   $zippedOutputFiles += $outputFileName
 }
 
